@@ -13,7 +13,7 @@ _This repository gathers my **Java projects**, developed during courses and boot
 The goal is to consolidate my learning and share solutions that may be useful to other developers!_ 
 <br>
 
-📖 Legenda | Legend  
+📖 Legenda | index  
 
 - [TR](https://www.treinarecife.com.br) → Treina Recife  
 - [DIO](https://www.dio.me) → Digital Innovation One
