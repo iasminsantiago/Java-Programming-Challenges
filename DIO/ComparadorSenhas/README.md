@@ -4,7 +4,7 @@
 Este programa em Java verifica se a senha digitada e a confirmação da senha são idênticas.
 Ele foi criado como parte de testes de segurança de uma interface bancária, garantindo que o usuário digitou corretamente a senha duas vezes.
 
-###Entrada
+### Entrada
 
 O programa lê duas strings:
 
