@@ -23,7 +23,7 @@ Cadastro incompleto: se algum campo estiver vazio.
 
 Cadastro validado com sucesso: se todos os campos estiverem preenchidos.
 
-Exemplos
+### Exemplos
 
 Exemplo 1:
 Entrada:
