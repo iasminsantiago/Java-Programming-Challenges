@@ -1,0 +1,75 @@
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+public class OrganizandoEstoque { // TODO codigo deve estar dentro de uma classe, em Java.
+
+    public static void main(String[] args) {
+        // Cria o objeto Scanner para ler a entrada do usuário (a linha com os dados do estoque)
+        Scanner scanner = new Scanner(System.in);
+
+        // Lê toda a linha digitada pelo usuário, por exemplo: "LOJA1:10,LOJA2:5,LOJA1:3"
+        String entrada = scanner.nextLine();
+
+        // Chama o método organizarEstoque, que faz o processamento dos dados
+        // e guarda o resultado na variável 'saida'
+        String saida = organizarEstoque(entrada);
+
+        // Exibe o resultado no console (por exemplo: "LOJA1:13,LOJA2:5")
+        System.out.println(saida);
+
+        // Fecha o Scanner para liberar recursos do sistema
+        scanner.close();
+    }
+
+    // Método responsável por organizar o estoque, somando quantidades por loja
+    public static String organizarEstoque(String entrada) {
+
+        // Cria um LinkedHashMap que associa o código da loja (chave) à quantidade total (valor)
+        // O LinkedHashMap mantém a ordem de inserção das lojas, diferente do HashMap comum
+        Map<String, Integer> estoque = new LinkedHashMap<>();
+
+        // Divide a string de entrada em várias partes separadas por vírgula
+        // Exemplo: "LOJA1:10,LOJA2:5,LOJA1:3" -> ["LOJA1:10", "LOJA2:5", "LOJA1:3"]
+        String[] lojas = entrada.split(",");
+
+        // Percorre cada item do vetor 'lojas'
+        for (String loja : lojas) {
+
+            // Para cada loja, separa o código e a quantidade pelo símbolo ":"
+            // Exemplo: "LOJA1:10" -> ["LOJA1", "10"]
+            String[] partes = loja.split(":");
+
+            // A primeira parte é o código da loja
+            String codigo = partes[0].trim();
+
+            // A segunda parte é a quantidade, que precisa ser convertida de texto para número
+            int quantidade = Integer.parseInt(partes[1].trim());
+
+            // Adiciona ou soma a quantidade ao código da loja
+            // Se a loja já existir no mapa, soma ao valor atual
+            // Se não existir, cria uma nova entrada com essa quantidade
+            estoque.put(codigo, estoque.getOrDefault(codigo, 0) + quantidade);
+        }
+
+        // StringBuilder serve para montar a string final de saída de forma eficiente
+        StringBuilder sb = new StringBuilder();
+
+        // Percorre o mapa 'estoque' para montar o resultado final
+        // Cada item é escrito no formato "codigo:quantidade"
+        for (Map.Entry<String, Integer> entry : estoque.entrySet()) {
+            sb.append(entry.getKey())   // adiciona o código da loja
+              .append(":")              // adiciona os dois pontos
+              .append(entry.getValue()) // adiciona a quantidade total
+              .append(",");             // adiciona uma vírgula para separar os itens
+        }
+
+        // Remove a última vírgula que sobra no final da string
+        if (sb.length() > 0) {
+            sb.setLength(sb.length() - 1);
+        }
+
+        // Retorna o resultado final, já formatado
+        return sb.toString();
+    }
+}
