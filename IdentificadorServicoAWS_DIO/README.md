@@ -1,30 +1,31 @@
-------------------- bootcamp CI&T + DIO
+# ☁️ Identificação de Serviços AWS a partir de Texto (Java)
+## 🧠 Contexto
+Este repositório contém a resolução de um desafio prático em Java, proposto em um contexto de migração de sistemas para a nuvem utilizando AWS.
 
-Este projeto resolve um desafio prático em Java cujo objetivo é identificar automaticamente o serviço AWS mais adequado a partir de uma solicitação escrita em linguagem natural.
-A ideia central é simular um cenário de atendimento inicial de suporte técnico, no qual o sistema recebe uma mensagem do cliente e, com base em palavras-chave, retorna o serviço correspondente.
+O desafio simula um cenário real de atendimento inicial de suporte técnico, no qual solicitações dos clientes são recebidas em texto livre e precisam ser classificadas automaticamente para indicar qual serviço AWS é mais adequado, tornando o processo mais ágil e eficiente.
 
-O mapeamento esperado é:
+## 📋 Descrição do Problema
+O sistema deve receber uma solicitação do cliente em formato de texto simples e, com base em palavras-chave presentes nessa solicitação, indicar qual serviço AWS corresponde à demanda informada.
+
+Os serviços considerados no desafio são:
 EC2 → demandas relacionadas a servidores virtuais
-
 S3 → armazenamento de arquivos
-
 RDS → bancos de dados relacionais
+Lambda → execução de código sob demanda
 
-Lambda → execução de funções sem servidor
+Caso a solicitação não se encaixe em nenhuma dessas categorias, o programa deve retornar:
+Servico desconhecido
 
-Caso a solicitação não se encaixe em nenhuma dessas categorias → Servico desconhecido
+A solução deve ser implementada utilizando apenas estruturas básicas de controle e sintaxe simples, sem uso de bibliotecas externas.
 
-
-⌨️ Entrada
+## ⌨️ Entrada
 Uma única string, representando a solicitação do cliente em texto livre.
-
-A entrada pode variar em termos de capitalização (maiúsculas e minúsculas) e forma de escrita, devendo ser tratada de maneira consistente pelo programa.
+A entrada pode variar quanto ao uso de letras maiúsculas e minúsculas, devendo ser tratada de forma consistente pelo programa.
 Exemplo de entrada:
 Preciso de um servidor para rodar aplicacoes
 
-
-📤 Saída
-Uma única string, indicando qual serviço AWS é o mais adequado para a solicitação recebida.
+## 📤 Saída
+Uma única string, indicando o serviço AWS correspondente à solicitação recebida.
 
 Possíveis saídas:
 EC2
@@ -33,26 +34,45 @@ RDS
 Lambda
 Servico desconhecido
 
+🧪 Exemplos
+Entrada	-- Saída
+Preciso de um servidor para rodar aplicacoes	-- EC2
+Quero armazenar imagens e videos	-- S3
+Necessito de um banco de dados relacional	-- RDS
+Preciso executar funcoes sem servidor	-- Lambda
+Solicito um servico de inteligencia artificial	-- Servico desconhecido
 
 
-📝 Anotações e Decisões de Implementação
-Durante a implementação da solução, algumas decisões técnicas foram tomadas com o objetivo de tornar o código mais robusto, legível e fiel ao enunciado:
+## 🛠️ Tecnologias Utilizadas
+- Linguagem: Java
 
-Padronização da entrada para letras minúsculas
-A solicitação do cliente é convertida para minúsculas antes das comparações, garantindo que diferenças de capitalização não afetem o funcionamento do método contains().
+- Estruturas utilizadas:
+Condicionais (if / else if / else)
+Manipulação de strings
 
-Uso de if / else if / else
-Essa estrutura garante que apenas um único serviço AWS seja retornado por solicitação, respeitando a lógica de exclusividade exigida pelo problema.
+- Biblioteca padrão: java.util.Scanner
 
-Uso do método contains()
-A identificação do serviço é feita a partir da presença de frases-chave na solicitação, conforme orientado pelo enunciado, sem uso de bibliotecas externas ou estruturas avançadas.
+## 📝 Anotações e Decisões de Implementação
+Durante a implementação da solução, algumas decisões técnicas foram tomadas para garantir clareza, robustez e aderência ao enunciado:
 
-*Como contains é case sensitive, as strings em if/else foram digitadas em minúsculo, diferente do que os exemplos da questão mostram, para garantir que o que foi armazenado em _texto_ (minúsculo) seja corretamente lido no bloco de decisão.*
+### 🔤 Padronização da entrada
+A solicitação do cliente é convertida para letras minúsculas antes das comparações.
+Isso evita falhas causadas por diferenças de capitalização, já que o método contains() é sensível a maiúsculas e minúsculas.
 
-Essas escolhas priorizam clareza, simplicidade e aderência às regras do desafio, além de facilitarem a leitura e manutenção do código.
+### 🧠 Uso de if / else if / else
+Foi utilizada a estrutura condicional sequencial para garantir que apenas um serviço AWS seja retornado por solicitação, respeitando a lógica de exclusividade proposta no problema.
 
-🎯 Objetivo do Projeto
+### 🔍 Identificação por palavras-chave
+O método contains() foi utilizado para verificar a presença de frases-chave na solicitação, conforme orientado pelo enunciado, sem recorrer a bibliotecas externas ou estruturas avançadas.
+Essas decisões priorizam simplicidade, legibilidade e fidelidade às regras do desafio.
+
+## 🎯 Objetivo do Projeto
 Praticar lógica condicional em Java
 Trabalhar com manipulação básica de strings
 Simular um cenário real de suporte em ambientes de nuvem
 Consolidar fundamentos importantes para desafios técnicos e entrevistas em nível júnior
+
+# 🌱 Observações Finais
+
+Este projeto faz parte do meu processo de aprendizado em Java e computação em nuvem.
+As anotações presentes no código e neste README refletem decisões conscientes de implementação, visando não apenas resolver o problema, mas também documentar o raciocínio por trás da solução.
