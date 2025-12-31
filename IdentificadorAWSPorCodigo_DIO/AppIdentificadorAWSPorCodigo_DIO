@@ -1,0 +1,34 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+
+        // Leitura da entrada padrão
+        // O código de operação deve ser comparado exatamente como informado:
+        Scanner scanner = new Scanner(System.in);
+        String codigo = scanner.nextLine();
+
+        /*
+          A comparação é feita utilizando equals(), pois o desafio exige correspondência exata do código de operação.
+         Diferente de cenários com texto livre, o uso de contains() não é adequado aqui, pois permitiria correspondências parciais
+         (ex: "XEC2" ou "ec2"), que devem ser consideradas inválidas.
+         */
+
+        if (codigo.equals("EC2")) {
+            System.out.println("EC2");
+
+        } else if (codigo.equals("S3")) {
+            System.out.println("S3");
+
+        } else if (codigo.equals("Lambda")) {
+            System.out.println("Lambda");
+
+        } else {
+            // Caso o código não corresponda exatamente a nenhum serviço válido:
+            System.out.println("Codigo invalido");
+        }
+
+        // Fechamento do Scanner para liberar recursos:
+        scanner.close();
+    }
+}
