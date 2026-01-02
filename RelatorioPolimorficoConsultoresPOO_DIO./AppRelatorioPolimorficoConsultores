@@ -1,0 +1,88 @@
+import java.util.*; 
+// importa todo o pacote java.util. Usaremos nextLine() para ler entrada e List e ArrayList para guardar os consultores.
+
+abstract class Consultant { // abstrata, só serve de base para classes-filhas. Não pode ser instanciada, não veremos Consultant var = new Consultant.
+    protected String name;
+    protected String role;
+    // protected - as classes filhas conseguirão acessar name e role, já códigos de fora da classe mãe e filha não conseguem. 
+
+    // Metodo construtor
+    /* this.name é o atributo da classe (armazenado no heap).
+    name, à direita do '=', é o parâmetro do construtor (armazenado na stack).
+    Essa linha atribui, ao atributo do objeto, o valor recebido como argumento na criação do objeto.
+    Parâmetro recebe o argumento. Atributo recebe o valor do parâmetro.*/
+
+    public Consultant(String name, String role) {
+        this.name = name; 
+        this.role = role;
+    }
+   
+
+    public String present() {
+        return role + ": " + name;
+    }
+}
+
+// Aplicando herança
+class Developer extends Consultant {
+    public Developer(String name) {
+        super(name, "Dev");
+    }
+}
+
+class Analyst extends Consultant {
+    public Analyst(String name) {
+        super(name, "Analyst");
+    }
+}
+
+class Manager extends Consultant {
+    public Manager(String name) {
+        super(name, "Manager");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);  // scanner (esquerda de =)  é o novo objeto/instância da classe/tipo Scanner, confirmamos isso em new Scanner(System.in)
+        String inputLine = scanner.nextLine().trim();
+
+        /* 
+        nextLine() é um método da classe Scanner, é método sendo chamado pelo objeto scanner. 
+        Como scanner é uma instância d aclasse Scanner, pode executar um comportamento dela, sendo ele o nextLine(). 
+        Outro exemplo: Pessoa maria = new Pessoa();   maria.andar();
+        Tipo nomeVariavel = new Tipo();  
+        Pessoa [nome da variável] maria [nome da variável] = new Pessoa() [objeto criado]
+        Obs.: o tipo da variável precisa ser do mesmo do objeto. Por isso, está errado String maria = new Pessoa(); pois Pessoa não é uma String, é um tipo por si só, por ser classe.
+        Já o "." é um operador de acesso a membros
+         trim remove espaços no começo e fim da string */
+
+        // Aplicando polimorfismo
+        List<Consultant> consultantList = new ArrayList<>(); 
+
+        // Separar consultores por ";"
+        String[] entries = inputLine.split(";");
+
+        for (String entry : entries) {
+            entry = entry.trim();
+            if (entry.isEmpty()) continue;
+
+            String[] parts = entry.split(" ", 2);
+            String jobTitle = parts[0];
+            String personName = parts[1];
+
+            if (jobTitle.equals("Developer")) {
+                consultantList.add(new Developer(personName));
+            } else if (jobTitle.equals("Analyst")) {
+                consultantList.add(new Analyst(personName));
+            } else if (jobTitle.equals("Manager")) {
+                consultantList.add(new Manager(personName));
+            }
+        }
+
+        // Impressão final (polimorfismo)
+        for (Consultant consultant : consultantList) {
+            System.out.println(consultant.present());
+        }
+    }
+}
