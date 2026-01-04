@@ -1,79 +1,93 @@
 import java.util.*; 
 // importa todo o pacote java.util. Usaremos nextLine() para ler entrada e List e ArrayList para guardar os consultores.
 
-abstract class Consultant { // abstrata, só serve de base para classes-filhas. Não pode ser instanciada, não veremos Consultant var = new Consultant.
-    protected String name;
-    protected String role;
+abstract class Consultant {           // abstrata, só serve de base para classes-filhas. Não pode ser instanciada, não veremos Consultant var = new Consultant.
+    protected String name;            // atributo = variável de classe; 
+    protected String role; 
+    // Por ser String, os valores de role não serão diretamente armazenados na memória. Vai apontar para um endereço na memória, que aí sim pode conter seu valor.
     // protected - as classes filhas conseguirão acessar name e role, já códigos de fora da classe mãe e filha não conseguem. 
 
     // Metodo construtor
     /* this.name é o atributo da classe (armazenado no heap).
     name, à direita do '=', é o parâmetro do construtor (armazenado na stack).
     Essa linha atribui, ao atributo do objeto, o valor recebido como argumento na criação do objeto.
-    Parâmetro recebe o argumento. Atributo recebe o valor do parâmetro.*/
-
-    public Consultant(String name, String role) {
-        this.name = name; 
+    Parâmetro recebe o argumento. Atributo recebe o valor do parâmetro.
+    */
+    public Consultant(String name, String role) { 
+        this.name = name; // quando o construtor é chamado na main, ele atribuirá o nome ao name do objeto. 
         this.role = role;
     }
    
 
-    public String present() {
-        return role + ": " + name;
+    public String present() {          // é um método que retorna tipo String e junta papel com nome 
+        return role + ": " + name;     // ex.: Dev: Iasmin
     }
 }
 
 // Aplicando herança
-class Developer extends Consultant {
-    public Developer(String name) {
-        super(name, "Dev");
+
+class Developer extends Consultant {     // classe dos desenvolvedores, herda da classe Consultant
+    // Construtor da Developer:
+    public Developer(String name) {      // receberá só o nome, pois o role mostrado será sempre "Dev" (como print na tela)
+        super(name, "Dev");              // super: chama o construtor da classe mãe
     }
 }
 
-class Analyst extends Consultant {
+class Analyst extends Consultant {       // classe dos analistas
     public Analyst(String name) {
         super(name, "Analyst");
     }
 }
 
-class Manager extends Consultant {
+class Manager extends Consultant {        // classe dos gerentes
     public Manager(String name) {
         super(name, "Manager");
     }
 }
 
-public class Main {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);  // scanner (esquerda de =)  é o novo objeto/instância da classe/tipo Scanner, confirmamos isso em new Scanner(System.in)
-        String inputLine = scanner.nextLine().trim();
-
+public class Main {                                      // o Java sempre começa a executar por aqui
+    public static void main(String[] args) {             // método principal
+        // vamos criar um leitor de teclado (entrada). Criamos a variável scanner, do tipo Scanner (classe), que aponta pro objeto criado com New Scanner(System.in). 
+        Scanner scanner = new Scanner(System.in);        // scanner (esquerda de =)  é o novo objeto/instância da classe/tipo Scanner, confirmamos isso em new Scanner(System.in)
+        String inputLine = scanner.nextLine().trim();    // Lerá a linha inteira digitada. trim tira os espaços antes e depois do texto digitado (String)
+        
         /* 
-        nextLine() é um método da classe Scanner, é método sendo chamado pelo objeto scanner. 
-        Como scanner é uma instância d aclasse Scanner, pode executar um comportamento dela, sendo ele o nextLine(). 
+         Exemplo de Entrada pelo usuário: Developer Alice;Analyst Bob;Manager Carol
+        nextLine() é um método da classe Scanner, é método sendo chamado pelo scanner. 
+        Como scanner é uma instância da classe Scanner, pode executar um comportamento dela, sendo ele o nextLine(). 
         Outro exemplo: Pessoa maria = new Pessoa();   maria.andar();
         Tipo nomeVariavel = new Tipo();  
-        Pessoa [nome da variável] maria [nome da variável] = new Pessoa() [objeto criado]
+        Pessoa [tipo da variável] maria [nome da variável] = new Pessoa() [objeto criado]
         Obs.: o tipo da variável precisa ser do mesmo do objeto. Por isso, está errado String maria = new Pessoa(); pois Pessoa não é uma String, é um tipo por si só, por ser classe.
         Já o "." é um operador de acesso a membros
-         trim remove espaços no começo e fim da string */
+        */
 
         // Aplicando polimorfismo
         List<Consultant> consultantList = new ArrayList<>(); 
+        /* Cria uma lista, chamada consultantList, que guarda Consultant. 
+        Assim, dentro dela pode existir Developer, Analyst e Manager.
+        */
 
-        // Separar consultores por ";"
-        String[] entries = inputLine.split(";");
+        String[] entries = inputLine.split(";");     // split(;"") = separar em ;
+        /* Separar consultores por ";". 
+        Se a entrada pelo usuário for: Developer Alice;Analyst Bob;Manager Carol
+        ele separará como ["Developer Alice", "Analyst Bob", "Manager Carol"]
+        */
 
-        for (String entry : entries) {
-            entry = entry.trim();
-            if (entry.isEmpty()) continue;
+        // Percorrendo cada consultor:
+        for (String entry : entries) {      // Loop que passa por cada pedaço da lista, de entry até entries
+            entry = entry.trim();           // remove espaçso extras no inicio e fim de cada String entry
+            if (entry.isEmpty()) continue;  // Se a entrada estiver vazia, pula para o próximo
 
-            String[] parts = entry.split(" ", 2);
-            String jobTitle = parts[0];
-            String personName = parts[1];
+            String[] parts = entry.split(" ", 2);  // Separando cargo e nome, divide o que tem antes e depois de espaço " " em 2 partes.
+            String jobTitle = parts[0];            // Antes do primeiro espaço → cargo.  jobTitle → Developer / Analyst / Manager
+            String personName = parts[1];          // Depois → nome. Exemplo: "Developer Alice" → ["Developer", "Alice"].  personName → nome da pessoa
 
-            if (jobTitle.equals("Developer")) {
-                consultantList.add(new Developer(personName));
-            } else if (jobTitle.equals("Analyst")) {
+
+            // Decidindo qual objeto criar:
+            if (jobTitle.equals("Developer")) {                  // se o JobTitle da entrada por Developer, 
+                consultantList.add(new Developer(personName));   // ele cria um Developer com esse nome (personName) da entrada e adiciona na lista 
+            } else if (jobTitle.equals("Analyst")) {             // a lista não sabe qual é a classe concreta, ela só sabe que é tudo Consultant
                 consultantList.add(new Analyst(personName));
             } else if (jobTitle.equals("Manager")) {
                 consultantList.add(new Manager(personName));
@@ -81,8 +95,8 @@ public class Main {
         }
 
         // Impressão final (polimorfismo)
-        for (Consultant consultant : consultantList) {
-            System.out.println(consultant.present());
+        for (Consultant consultant : consultantList) {    // Percorre a lista de consultores
+            System.out.println(consultant.present());     // chama o método present, cada objeto responderá corretamente. Developer → Dev: nome
         }
     }
 }
