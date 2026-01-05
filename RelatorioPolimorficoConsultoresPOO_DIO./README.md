@@ -3,6 +3,7 @@
 
 Este projeto implementa um sistema simples de geração de relatórios para consultores de uma empresa fictícia chamada TechConsult.
 Cada consultor pertence a uma especialidade diferente — Developer, Analyst ou Manager — e cada uma possui uma forma específica de apresentação.
+Obs.: No arquivo _Anotacoes_..., você encontrará uma versão comentada em detalhes, de modo que meu aprendizado em POO fique registrado.
 
 O sistema foi desenvolvido utilizando Programação Orientada a Objetos (POO), aplicando os conceitos de:
 
