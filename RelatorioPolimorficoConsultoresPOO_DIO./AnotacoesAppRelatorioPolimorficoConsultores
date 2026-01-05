@@ -48,11 +48,28 @@ class Manager extends Consultant {        // classe dos gerentes
 public class Main {                                      // o Java sempre começa a executar por aqui
     public static void main(String[] args) {             // método principal
         // vamos criar um leitor de teclado (entrada). Criamos a variável scanner, do tipo Scanner (classe), que aponta pro objeto criado com New Scanner(System.in). 
-        Scanner scanner = new Scanner(System.in);        // scanner (esquerda de =)  é o novo objeto/instância da classe/tipo Scanner, confirmamos isso em new Scanner(System.in)
+        Scanner scanner = new Scanner(System.in);        // scanner (esquerda de =)  é variável local de referência
+        // scanner é local pois foi declarada dentro do método main e só existe durante a execuçáo desse método, na memória stack. NÃO É OBJETO!   
+        // a variável scanner também é uma variável de referência pois guarda uma referência para um objeto String no Heap, criado com new Scanner(System.in). 
+        // new cria um objeto no heap, Scanner(...) chama o construtor da classe Scanner e System.in informa o fluxo de entrada padrão: o teclado. System = classe  in = atributo estático.
+        // a variável scanner só pode apontar para objetos do tipo Scanner. scanner não é objeto, ele aponta para o objeto. O objeto Scanner (S maiúsculo) é uma instância da classe Scanner.
+        // Objeto é criado com new. A variável só guarda a referência.
         String inputLine = scanner.nextLine().trim();    // Lerá a linha inteira digitada. trim tira os espaços antes e depois do texto digitado (String)
         
         /* 
-         Exemplo de Entrada pelo usuário: Developer Alice;Analyst Bob;Manager Carol
+        Onde variável foi declarada	X  Tipo
+        Dentro da classe, fora de métodos ->	atributo (instância ou classe)
+        Dentro de método	-> variável local
+        Variável que guarda endereço de objeto	-> variável de referência
+
+        Stack guarda variáveis em execução, toda variável local vive no stack**
+        HEAP guarda objetos. 
+        Variáveis primitivas armazenam o valor direto.
+        Variáveis de referência armazenam o endereço do objeto.
+        **Exceto variáveis de Atributos de instância e de classe, que vivem no HEAP. 
+        Os atributos de instância vivem dentro do objeto, por isso estão no heap; os atributos de classe (static) vivem na metaspace (ou área de classe), vivem 
+        
+        Exemplo de Entrada pelo usuário: Developer Alice;Analyst Bob;Manager Carol
         nextLine() é um método da classe Scanner, é método sendo chamado pelo scanner. 
         Como scanner é uma instância da classe Scanner, pode executar um comportamento dela, sendo ele o nextLine(). 
         Outro exemplo: Pessoa maria = new Pessoa();   maria.andar();
