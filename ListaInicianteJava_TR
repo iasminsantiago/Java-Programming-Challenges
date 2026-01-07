@@ -1,0 +1,42 @@
+// Lista de exercícios - nível básico
+
+public class ExerciciosBasicos{
+    public static void main(String[] args) {    
+
+
+/*
+- static - não é final, que nAo muda. static indica que esse metodo pertence à classe, nao ao objeto. A JVM nao cria objetos, static permite que a JVM execute o método main direto 
+ Ex.: static int contador -> se 10 obj. acessarem isso, todos mexem no mesmo contador. static não congela valor.
+- void - o main so serve para exexutar o programa, ele nao retorna valor pra ninguem
+- main - se não colocar main, a JVM não reconhece essa assinatura exata como ponto de entrada. main é um método, não posso criar outros metodos dentro dele. Métodos são criados dentro da classe, fora de outros métodos.
+Assim, posso criar metodos dentro da classe, antes do bloco do main, e chama-los dentro do main
+    public class teste{
+        static void metodoAuxiliar(){ -- criei esse metodo antes da main
+          // logica
+        }
+        public static void main(String[] args){
+            metodoAuxiliar();      -- aqui, chamei o meotod criado fora da main
+        }
+  }
+- String[] = array ([], e array tem tamanho fixo, mas posso mudar valores de cada indice) de Strings chamado args (nome da variável). Pode mudar o nome args para outro, args é sõ CONVENÇÃO
+- Obs.: Array é diferente de list (arrayList e derivados). Array: String[]    List: List<String>  = lista dinamica, que usamos no desafio de codigo com classe consultant da DIO (bootcampo ci&t)
+*/
+
+
+/* Q.1 Manipulação de int : Crie uma variável int chamada idade . Atribua sua idade a
+ela. Em seguida, redefina o valor para a sua idade no próximo ano e imprima ambos
+os valores. 
+*/
+    int idadeAtual = 30;
+    int idadeAnoSeguinte = idadeAtual + 1;
+    System.out.print("Minha idade atual é: " + idadeAtual + ". Ano que vem, terei: " + idadeAnoSeguinte + " anos.");
+
+
+
+
+
+
+
+
+    }
+}
