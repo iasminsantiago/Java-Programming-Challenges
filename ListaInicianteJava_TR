@@ -34,7 +34,47 @@ os valores.
 
 
 
+/* 2. Manipulação de double : Crie uma variável double chamada preco . Atribua um valor
+com casas decimais (por exemplo, 19.99). Em seguida, calcule o dobro desse valor e
+armazene-o em uma nova variável, imprimindo o resultado.*/
+    double preco = 19.99;
+    double precoDobrado = preco*2;
+    System.out.println("O dobro do preço R$ " + preco + " é: R$ " + precoDobrado);
+// double tem mais rpecisão que float
+// se preco fosse float, declararia assim: float preco = 19.99f ou = 19.99F. Em float, o f é obrigatório pois 19.99 é considerado automaticamente como double. 
+// Se tem casa decimal e não colocou f, ele interpreta por padrão como double.
 
+/* 3. Manipulação de boolean : Crie uma variável boolean chamada estaChovendo .
+Atribua o valor true ou false a ela. Use uma estrutura condicional ( if/else ) para
+imprimir "Está chovendo, leve um guarda-chuva." ou "Não está chovendo, aproveite o
+dia.".*/
+    boolean estaChovendo = true;  // em java, os valores booleanos são minúsculos. Não existe True nem False.
+    if (estaChovendo) {  // nao precisa comparar com true, é desnecessário fazer estaChovendo == true.
+        System.out.println("Está chovendo, leve um guarda-chuva."); 
+    } else {
+         System.out.println("Não está chovendo, aproveite o dia."); 
+    }
+        
+/* 4. Manipulação de char : Crie uma variável char chamada primeiraLetra . Atribua a
+primeira letra do seu nome a ela. Imprima a letra e o seu código ASCII correspondente. */
+    char primeiraLetra = 'I';  // CHAR NÃO USA ASPAS, guarda so 1 caractere. Se eu colocar "I", é String. COrreto é asás simples.
+    System.out.println("Primeira letra: " + primeiraLetra); 
+    System.out.println("Código ASCII: " (int) primeiraLetra); // (int) converterá o char para int -> o java imprimirá um valor numérico = código ASCII dele. 
+    // ASCII é obtido convertendo char para int
+
+
+/* 5. Combinação de tipos: Crie uma variável String chamada nomeCompleto e atribua
+seu nome completo a ela. Em seguida, crie uma variável int chamada
+anoNascimento . Atribua o seu ano de nascimento a ela. Imprima uma frase que
+combine essas duas variáveis, como "Meu nome é [nomeCompleto] e nasci em
+[anoNascimento].".*/
+    String nomeCompleto = "Iasmin Santiago";
+    int anoNascimento = 1995;
+    System.out.printf("Meu nome é %s e nasci em %d.%n", nomeCompleto, anoNascimento);  // poderia usar concatenação também. 
+    // Usei os especificadores de formato para praticar. Escrevo o molde do texto e o java preenche os valores.
+    // %s = String  aqui entra o texto/String.   %d = decimal integer = número inteiro. Usado para int, long etc 
+    // %n = quebra de linha, melhor que \n pois funciona em qualquer sistema operacional
+    
 
 
 
