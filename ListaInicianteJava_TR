@@ -75,6 +75,9 @@ combine essas duas variáveis, como "Meu nome é [nomeCompleto] e nasci em
     // %s = String  aqui entra o texto/String.   %d = decimal integer = número inteiro. Usado para int, long etc 
     // %n = quebra de linha, melhor que \n pois funciona em qualquer sistema operacional
     
+/* 6. Cálculo de área com float : Crie uma variável float chamada raio . Atribua um
+valor com casas decimais (por exemplo, 5.5f ). Calcule a área do círculo usando a
+fórmula A=π×r2 e armazene o resultado em outra variável float , imprimindo o valor. Use Math.PI para o valor de Pi. */
 
 
 
