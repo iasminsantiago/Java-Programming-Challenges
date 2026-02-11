@@ -26,7 +26,8 @@ SE - para APIs
 - programa que conversa com o SO
 - java.java -> javac => java.class -> jvm no windows, linux e os => roda sem problemas
 
-
+## PROGRAMA JAVA
+- todos os programas java são colocados dentro de pacotes/packages/*pastas*
 # Java Web
 - tomcat é o servidor
 > **Obs.:** 
