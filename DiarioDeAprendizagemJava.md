@@ -17,6 +17,8 @@ Net Scape, navegador, fez parceira com SUN e resgatou o java da gaveta
 - o Python tem interpretador, a conversão de linguagem ocorre cada vez que o programa é executado.
 
 
+## 
+
 ## PACOTES JAVA
 JRE - só rodar apps java, pacote necessário para rodarmos o JVM.
 JDK - rodar e desenvovler kit. Sem ele, não dá para desenvolver programs java. 
@@ -31,6 +33,11 @@ SE - para APIs
 - Seguro - tem camadas de segurança
 
 ## CÓDIGO
+### PROCESSAMENTO
+1. crio e escrevo no arquivo programinha.java
+2. dou run ou digito (no temrinal)  ```javac programinha.java```  ->  ele cria novo arquivo programinha.class, na pasta bin. ESSE é o bytecode, o arquivo .class
+   posso enviar esse arquivo para qualquer S.O.. Basta tal sistema ter o JVM instalado, e meu programinha.class rodará.
+3. para executar o bytecode, digito ```java programinha```
 ### usuário informa valor
 - preciso suar biblio chamada Scanner, importarei ela
 ```java
