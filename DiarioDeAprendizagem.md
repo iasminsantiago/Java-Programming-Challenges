@@ -6,7 +6,16 @@
 - Objetivo: rodar código em qualquer sistema operacional. -> foi engavetado por ser muito ambicioso (=distribuível)
 Net Scape, navegador, fez parceira com SUN e resgatou o java da gaveta
 
-- deviso a sua robustez, pode ser usado em máquinas antigas e atuais, grandes pcs e dispositovos moveis, sistemas grandes e pequenos.
+- devido a sua robustez, pode ser usado em máquinas antigas e atuais, grandes pcs e dispositovos moveis, sistemas grandes e pequenos.
+
+## BIBLIOTECAS
+- funções prontas, para usá-las basta que importemos e as chamemos no código
+
+## COMPILADO VS. INTERPRETADO
+- a linguagem de alto padrão é transformada em binária através de um programa conversor. Ele pode ser compilador ou interpretador.
+- O Java tem compilador. executamos o programa e ele é compilado apenas 1 vez, gerando código-objeto, que pode ser executado várias vezes.
+- o Python tem interpretador, a conversão de linguagem ocorre cada vez que o programa é executado.
+
 
 ## PACOTES JAVA
 JRE - só rodar apps java, pacote necessário para rodarmos o JVM.
@@ -21,9 +30,33 @@ SE - para APIs
 - Distribuível, podemos rodar em pc e celular etc
 - Seguro - tem camadas de segurança
 
+## CÓDIGO
+### usuário informa valor
+- preciso suar biblio chamada Scanner, importarei ela
+```java
+...
+import java.util.Scanner;
 
+// é linguagem OO, então TODO código SEMPRE estará dentro de uma classe. A classe main é a classe principal.
+class Main {
+  public static void main (String][] args) {
+    System.out.print("Hello, World!");
+
+    // criei um objeto do tipo Scanner. Estou instanciando um novo objeto do tipo Scanner
+    Scanner leitura = new Scanner(System.in);
+    // System.in = uso meu objeto leitura para ler algo da tela
+
+    System.out.print("Digite um número: ");
+    int num = leitura.nextInt();
+    // captura o digitado no teclado e, ao mesmo tempo, converte para número inteiro
+    // usa leitura para ler o numero inteiro, aplicando a funçao nextInt para ler um numero inteiro digitado pelo usuario
+    // armazena essa leitura do teclado na variavel num
+
+```
 ### JVM
 - programa que conversa com o SO
+- dependente do sistema operacional. Possibiltia código java rodar em qualquer sistema pois cada sistema tem uma JVM específica, a máquina virtual para aquele s.o.
+- Como a JVM age:  converte .java em bytecode e depois em binário
 - java.java -> javac => java.class -> jvm no windows, linux e os => roda sem problemas
 
 ## PROGRAMA JAVA
@@ -31,5 +64,8 @@ SE - para APIs
 # Java Web
 - tomcat é o servidor
 > **Obs.:** 
+
+---
 Fontes:
 Programa Start da Capgemini
+Pós-graduação em Análise e Desenvolvimento de Sistemas (ADS) da PUC MINAS
