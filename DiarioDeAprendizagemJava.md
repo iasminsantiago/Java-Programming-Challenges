@@ -1,12 +1,23 @@
 # <font color ="red"><center> Java </center></font>
 <center> Java </center>
 </br>
+## HISTORIA
   foi criado pela SUN Microsystems
 -- > SUN = Stanford University Network
 - Objetivo: rodar código em qualquer sistema operacional. -> foi engavetado por ser muito ambicioso (=distribuível)
 Net Scape, navegador, fez parceira com SUN e resgatou o java da gaveta
 
 - devido a sua robustez, pode ser usado em máquinas antigas e atuais, grandes pcs e dispositovos moveis, sistemas grandes e pequenos.
+
+## CARACTERÍSTICAS
+- fortemente tipado -> posso criar tipos de dados também -> criando classes e instanciando objetos que tem ela como tipo
+
+
+## TIPOS DE DAODS
+- float: decimal curto
+- double: decimal longo
+- char: 1 caractere, indicado por aspas simples ''
+- string: cadeira de chars, indicado por aspas duplas " "
 
 ## BIBLIOTECAS
 - funções prontas, para usá-las basta que importemos e as chamemos no código
@@ -33,11 +44,13 @@ SE - para APIs
 - Seguro - tem camadas de segurança
 
 ## CÓDIGO
-### PROCESSAMENTO
-1. crio e escrevo no arquivo programinha.java
-2. dou run ou digito (no temrinal)  ```javac programinha.java```  ->  ele cria novo arquivo programinha.class, na pasta bin. ESSE é o bytecode, o arquivo .class
-   posso enviar esse arquivo para qualquer S.O.. Basta tal sistema ter o JVM instalado, e meu programinha.class rodará.
-3. para executar o bytecode, digito ```java programinha```
+### PROCESSAMENTO -  QUANDO CLICAMOS EM RUN, QUE COMANDOS SÃO EQUIVALENTES/O QUE ACONTECE?
+Compila e executa o bytecode
+1. Após criar e escrever o arquivo programinha.java, digito (no temrinal):
+2. ```javac programinha.java```  COMPILA o codigo-fonte -> cria o bytecode programinha.class na pasta bin. Esse arquivo .class é o bytecode! Agora posso enviar esse arquivo par qualuer s.o. que tenha jvm instalado, e este o executará  com o comando abaixo
+3. ```java progrmianha``` EXECUTA o bytecode (a JVM do meu windows executa)
+
+
 ### usuário informa valor
 - preciso suar biblio chamada Scanner, importarei ela
 ```java
@@ -72,6 +85,14 @@ class Main {
 - tomcat é o servidor
 > **Obs.:** 
 
+
+## POO
+### CLASSE
+  se algo do mundo rela gera informações, posso representá-lo em uma classe.
+    carro -> cor, chassi, modelo, ano, renavan etc
+    enquanto a classe nao tiver instancias, ela é só um texto. 
+    Mas esse texto tem objetivo de ilustrar todas as instruções e criaçÕes de variáveis que precisamos para trabalhar os dados no programa e os gravar num banco de dados.
+    quando a classe se tornar viva (ser instanciada), 
 ---
 Fontes:
 Programa Start da Capgemini
