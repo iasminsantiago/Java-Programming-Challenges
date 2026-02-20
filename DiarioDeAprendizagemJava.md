@@ -93,6 +93,42 @@ class Main {
     enquanto a classe nao tiver instancias, ela é só um texto. 
     Mas esse texto tem objetivo de ilustrar todas as instruções e criaçÕes de variáveis que precisamos para trabalhar os dados no programa e os gravar num banco de dados.
     quando a classe se tornar viva (ser instanciada), 
+
+
+## API REST
+### CRIAR WORKSPACE
+- criar pasta no diretório C do windows, para o anti-virus não comprometer o funcionamento da aplicaçao
+### MAVEN
+- gerenciador de dependências -> app que  baixa todas as bibliotecas e dependências que meu projeto rpecisará automaticamente
+- o Maven baixará os arquivos das dependências e bibliotecas que ele viu descritas no arquivo pom.xml que geramos no site spring boot
+### GROUP
+- invertido, para o projeto ter um caminho unico  br.com.treinarecife, com.devsuperior, br.com.iasminsantiago
+
+### ARTIFACT
+- Nome do projeto
+- userdept
+
+### DESCRIPTION
+- Aula java web
+
+### PACKAGE
+- com.devsuperior.userdept
+
+### DEPENDENCIAS
+- Spring web
+- JPA (faz mapeamento objeto relacional do banco de dados)
+- H2 Database (ele sobe o banco de dados em memoria, nao precisa instalar nada para poder testar)
+- starter web (para trabalhar com api rest e web)
+
+### ARQUIVOS E ANOTATIONS
+- *Anotations*: @...  fazem pré-configurações no meu código, eles o configuram já antes de o compilar. Deixam o código mais limpo, precisaremos codar menos ao usar o framework spring por causa deles.
+- pom.xml -> tem as configurações do projeto (versões spring boot e java, as dependencias que escolhi)
+- artifactApplication.java -> é uma classe java normal, mas com a anotation @SpringBootApplication que transforma a classe num projeto spring boot pois faz um pre-processamento dessa classe antes de a compilar
+ 
+### TOMCAT
+- s spring roda um containerweb tomcat, para que nosso projeto rode por um servidor web.
+- Ex.: nosso projeto esta sendo servido via web na porta 8080 pelo tomcat, que é o container padrão do spring boot
+- no navegador, digito localhost (referencia para a propria máquina)  :8080 e consigo acessar minha aplicacao. Isso mostra tela de erro escrito whitelabel error page, significa que o projeto esta funcionando
 ---
 Fontes:
 Programa Start da Capgemini
